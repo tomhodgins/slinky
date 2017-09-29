@@ -2,8 +2,6 @@
 
 **Add JavaScript tests to &lt;link> tags to toggle stylesheets**
 
-![](https://i.imgur.com/HimJX3m.gif)
-
 Similar to how you can add media queries to `<link>` tags with the `media=""` attribute, Slinky lets you define a custom `data-selector=""` and `data-test=""` attributes to any `<link>` tag to define an element to watch, and a JavaScript test to evaluate from the context of the matching element.
 
 A simple usage might toggle the display of a stylesheet when the `#sidebar` element is wider than 500px:
