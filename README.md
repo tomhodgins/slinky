@@ -6,7 +6,7 @@ Similar to how you can add media queries to `<link>` tags with the `media=""` at
 
 A simple usage might toggle the display of a stylesheet when the `#sidebar` element is wider than 500px:
 
-````html
+```html
 <link
   rel="stylesheet"
   href="sidebar.css"
