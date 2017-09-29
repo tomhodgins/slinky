@@ -28,7 +28,7 @@ By default Slinky will add event listeners for `window.load`, `window.resize`, `
       data-event="scroll"
     >
 
-Note that in these examples I've included `media="none"` so the stylesheets default to being hidden - for progressive enhancement it you wish to default to the stylesheets applying unless they need to be hidden by JS, you can leave the `media="none"` off and the stylesheet will load by default, instead of remain hidden by default.
+Note that in these examples I've included `media="none"` so the stylesheets default to being hidden - for progressive enhancement if you wish to default to the stylesheets applying unless they need to be hidden by JS, you can leave the `media="none"` off and the stylesheet will load by default, instead of remain hidden by default.
 
 - https://github.com/tomhodgins/slinky
 
