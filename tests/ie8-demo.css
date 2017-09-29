@@ -1,0 +1,7 @@
+#demo {
+  background: lime;
+}
+
+#demo:after {
+  content: ' I am wider than 500px';
+}

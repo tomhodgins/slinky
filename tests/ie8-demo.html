@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <title>Slinky in IE8</title>
+  <link
+    rel="stylesheet"
+    href="ie8-demo.css"
+    data-selector="#demo"
+    media="none"
+    data-test="this.offsetWidth > 500"
+  >
+</head>
+<body>
+  <div id="demo">Hello</div>
+
+  <!-- IE8 Polyfills for addEventListener() and querySelectorAll() -->
+  <script>
+    /*
+     * addEventListener polyfill 1.0 / Eirik Backer / MIT Licence
+     * Forked from http://css-tricks.com/snippets/javascript/addeventlistner-polyfill/
+     * Adds the native DOM2 function addEventListener on IE6 - 8.
+     */
+
+    (function (win, doc) {
+
+      // If the function already exists, no need to polyfill
+      if (win.addEventListener) return;
+
+      function docHijack(p) {
+        var old = doc[p];
+        doc[p] = function (v) {
+          return addListen(old(v))
+        }
+      }
+      function addEvent(on, fn, self) {
+        return (self = this).attachEvent('on' + on, function(e) {
+          var e = e || win.event;
+          e.preventDefault  = e.preventDefault  || function(){e.returnValue = false}
+          e.stopPropagation = e.stopPropagation || function(){e.cancelBubble = true}
+          try {
+            fn.call(self, e);
+          }
+          catch (e) {}
+        });
+      }
+      function addListen(obj, i) {
+        if (i = obj.length) while (i--) obj[i].addEventListener = addEvent;
+        else obj.addEventListener = addEvent;
+        return obj;
+      }
+      addListen([doc, win]);
+      if ('Element' in win) win.Element.prototype.addEventListener = addEvent;      // IE8
+      else{                                                                       // IE < 8
+        doc.attachEvent('onreadystatechange', function(){addListen(doc.all)});    // Make sure we also init at domReady
+        docHijack('getElementsByTagName');
+        docHijack('getElementById');
+        docHijack('createElement');
+        addListen(doc.all);
+      }
+    })(window, document);
+
+    /*
+     * document.querySelector and querySelectorAll polyfill / Maxime Euzière / public domain
+     * Forked from: http://xem.github.io/Lazy/
+     * Adds basic DOM selection on IE6-8 (selection by tag, class or id only)
+     */
+
+    (function(doc) {
+      if (doc.querySelectorAll) return;
+
+      doc.querySelectorAll = function(a) {
+        if ("#" == a.charAt(0)) return [doc.getElementById(a.substr(1))];
+        if ("." == a.charAt(0)) return doc.getElementsByClassName(a.substr(1));
+        return doc.getElementsByTagName(a);
+      }
+
+      doc.querySelector = function(a) {
+        return querySelectorAll(a)[0];
+      }
+    })(document);
+  </script>
+
+  <script src="../slinky.js"></script>
+</body>
+</html>

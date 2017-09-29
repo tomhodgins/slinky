@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>Slinky Demo</title>
+
+<link rel=stylesheet href=demo.css data-selector=aside data-test="this.offsetWidth > 500" media=none>
+
+<script src=../slinky.js></script>
+
+<style>
+  * {
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-kerning: auto;
+  }
+  html {
+    line-height: 1.4;
+    font-weight: 400;
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: lightcoral;
+    margin: 0;
+    font-family: sans-serif
+  }
+  header {
+    color: white;
+    padding: 1em;
+    background: indianred;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0;
+  }
+  header nav {
+    display: block;
+    overflow: hidden;
+  }
+  header nav a {
+    display: inline-block;
+    padding: .75em;
+    color: white;
+    font-weight: 600;
+    text-transform: lowercase;
+    width: 33.33%;
+    float: left;
+  }
+  a {
+    outline: none;
+    text-decoration: none;
+  }
+  footer {
+    color: white;
+    padding: 2em;
+    text-align: center;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 .5em 0;
+    letter-spacing: -.02em;
+  }
+  h2 {
+    font-size: 20pt;
+    font-weight: 400;
+    color: indianred;
+  }
+  p {
+    margin: 0;
+  }
+  p + p {
+    margin-top: .75em;
+  }
+  div {
+    padding: 1.5em;
+    background: white;
+  }
+  div h3 {
+    color: indianred;
+  }
+  div p {
+    color: lightcoral;
+  }
+  main {
+    background: lavenderblush;
+    padding-bottom: 1.5em;
+  }
+  main section,
+  main aside {
+    padding: 1.5em;
+    padding-bottom: 0;
+  }
+  main article {
+    padding: 1.5em;
+    background: white;
+    border-radius: 3px;
+  }
+  main article p {
+    color: indianred;
+    line-height: 1.5;
+  }
+  .capsule {
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid lightpink;
+  }
+  .capsule  + .capsule {
+    border-top: none;
+  }
+  .capsule:first-of-type {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  .capsule:last-of-type {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  @media (min-width: 800px) {
+    header,
+    main {
+      overflow: hidden;
+    }
+    main section,
+    main aside {
+      float: left;
+      width: 40%;
+    }
+    main section {
+      width: 60%;
+      padding-right: 0;
+    }
+    header h1 {
+      float: left;
+    }
+    header nav {
+      float: right;
+    }
+  }
+</style>
+
+<header>
+  <h1>Header</h1>
+  <nav>
+    <a href=#>About</a>
+    <a href=#>Blog</a>
+    <a href=#>Contact</a>
+  </nav>
+</header>
+<main>
+  <section>
+    <article>
+      <h2>Headline</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis fugit earum voluptas officia, quasi saepe et commodi, dolores cumque quam fuga ullam, itaque ea dignissimos asperiores adipisci ad eveniet repellendus!</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis fugit earum voluptas officia, quasi saepe et commodi, dolores cumque quam fuga ullam, itaque ea dignissimos asperiores adipisci ad eveniet repellendus!</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis fugit earum voluptas officia, quasi saepe et commodi, dolores cumque quam fuga ullam, itaque ea dignissimos asperiores adipisci ad eveniet repellendus!</p>
+    </article>
+  </section>
+  <aside>
+    <div class=capsule>
+      <h3>Widget Headline</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div class=capsule>
+      <h3>Widget Headline</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div class=capsule>
+      <h3>Widget Headline</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+  </aside>
+</main>
+<footer>&copy; <script>document.write(new Date().getFullYear())</script></footer>

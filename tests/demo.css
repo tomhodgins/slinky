@@ -1,0 +1,7 @@
+aside {
+  background: lime;
+}
+
+aside:before {
+  content: 'Slinky Stylesheet applying!'
+}
